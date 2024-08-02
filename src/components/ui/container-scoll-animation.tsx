@@ -1,13 +1,12 @@
 "use client";
 import React, { useRef } from "react";
 import { useScroll, useTransform, motion, MotionValue } from "framer-motion";
-import {Compare} from '../ui/compare'
+import { Compare } from '../ui/compare';
+
 export const ContainerScroll = ({
   titleComponent,
-  children,
 }: {
-  titleComponent: string | React.ReactNode;
-  children: React.ReactNode;
+  titleComponent: React.ReactNode;
 }) => {
   const containerRef = useRef<any>(null);
   const { scrollYProgress } = useScroll({
@@ -46,15 +45,13 @@ export const ContainerScroll = ({
         }}
       >
         <Header translate={translate} titleComponent={titleComponent} />
-        <Card rotate={rotate} translate={translate} scale={scale}>
-          {children}
-        </Card>
+        <Card rotate={rotate} scale={scale} translate={translate} />
       </div>
     </div>
   );
 };
 
-export const Header = ({ translate, titleComponent }: any) => {
+export const Header = ({ translate, titleComponent }: { translate: MotionValue<number>; titleComponent: React.ReactNode; }) => {
   return (
     <motion.div
       style={{
@@ -70,12 +67,11 @@ export const Header = ({ translate, titleComponent }: any) => {
 export const Card = ({
   rotate,
   scale,
-  children,
+  translate,
 }: {
   rotate: MotionValue<number>;
   scale: MotionValue<number>;
   translate: MotionValue<number>;
-  children: React.ReactNode;
 }) => {
   return (
     <motion.div
@@ -87,17 +83,15 @@ export const Card = ({
       }}
       className="max-w-5xl -mt-12 mx-auto h-[30rem] md:h-[40rem] w-full border-4 border-[#6C6C6C] p-2 md:p-6 bg-[#222222] rounded-[30px] shadow-2xl"
     >
-        
-        <Compare
-          firstImage="https://assets.aceternity.com/notes-dark.png"
-          secondImage="https://assets.aceternity.com/linear-dark.png"
-          firstImageClassName="object-cover object-left-top w-full"
-          secondImageClassname="object-cover object-left-top w-full"
-          className="w-full h-full rounded-[22px] md:rounded-lg"
-          slideMode="hover"
-          autoplay={true}
-        />
-
+      <Compare
+        firstImage="https://assets.aceternity.com/notes-dark.png"
+        secondImage="https://assets.aceternity.com/linear-dark.png"
+        firstImageClassName="object-cover object-left-top w-full"
+        secondImageClassname="object-cover object-left-top w-full"
+        className="w-full h-full rounded-[22px] md:rounded-lg"
+        slideMode="hover"
+        autoplay={true}
+      />
     </motion.div>
   );
 };
