@@ -49,14 +49,14 @@ const features = [
             key={idx}
             className={cn(
               "relative w-32 cursor-pointer overflow-hidden rounded-xl border p-4",
-              "border-gray-950/[.1] bg-gray-950/[.01] hover:bg-gray-950/[.05]",
+              "border-gray-950/[.1] bg-white hover:bg-gray-950/[.05]",
               "dark:border-gray-50/[.1] dark:bg-gray-50/[.10] dark:hover:bg-gray-50/[.15]",
               "transform-gpu blur-[1px] transition-all duration-300 ease-out hover:blur-none",
             )}
           >
             <div className="flex flex-row items-center gap-2">
               <div className="flex flex-col">
-                <figcaption className="text-sm font-medium dark:text-white ">
+                <figcaption className="text-sm font-medium text-white dark:text-white ">
                   {f.name}
                 </figcaption>
               </div>
@@ -75,7 +75,15 @@ const features = [
     cta: "Learn more",
     className: "col-span-3 lg:col-span-2",
     background: (
-      <AnimatedList className="absolute right-2 top-4 h-[300px] w-[600px] border-none transition-all duration-300 ease-out [mask-image:linear-gradient(to_top,transparent_10%,#000_100%)] group-hover:scale-105" />
+      <AnimatedList className="absolute right-2 top-4 h-[300px] w-[600px] border-none transition-all duration-300 ease-out [mask-image:linear-gradient(to_top,transparent_10%,#000_100%)] group-hover:scale-105">
+  {files.map((file, index) => (
+    <div key={index} className="p-4 border rounded-md">
+      <h3 className="text-lg font-semibold">{file.name}</h3>
+      <p>{file.body}</p>
+    </div>
+  ))}
+</AnimatedList>
+
     ),
   },
   {
@@ -100,7 +108,7 @@ const features = [
       <Calendar
         mode="single"
         selected={new Date(2022, 4, 11, 0, 0, 0)}
-        className="absolute right-0 top-10 origin-top rounded-md border transition-all duration-300 ease-out [mask-image:linear-gradient(to_top,transparent_40%,#000_100%)] group-hover:scale-105"
+        className="absolute bg-white right-0 top-10 origin-top rounded-md border transition-all duration-300 ease-out [mask-image:linear-gradient(to_top,transparent_40%,#dfd6d6_100%)] group-hover:scale-105"
       />
     ),
   },
