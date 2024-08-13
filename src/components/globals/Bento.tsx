@@ -77,7 +77,7 @@ const features = [
     background: (
       <AnimatedList className="absolute right-2 top-4 h-[300px] w-[600px] border-none transition-all duration-300 ease-out [mask-image:linear-gradient(to_top,transparent_10%,#000_100%)] group-hover:scale-105">
   {files.map((file, index) => (
-    <div key={index} className="p-4 border rounded-md">
+    <div key={index} className="p-4 border bg-white rounded-lg">
       <h3 className="text-lg font-semibold">{file.name}</h3>
       <p>{file.body}</p>
     </div>
