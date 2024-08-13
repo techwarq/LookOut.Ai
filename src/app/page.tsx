@@ -10,6 +10,7 @@ import { motion, MotionValue, useSpring, useScroll, useTransform } from 'framer-
 import { useState } from "react";
 import React from "react";
 import ClientTweetCard from "@/components/globals/ClientTweetCard";
+import {BentoDemo} from "@/components/globals/Bento";
 export default function Home() {
   const ref = React.useRef(null);
   const { scrollYProgress } = useScroll({
@@ -49,7 +50,11 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="mt-96 pt-40" ref={ref}>
+      <section className="mt-72">
+        <BentoDemo />
+      </section>
+
+      <section className=" mt-72 " ref={ref}>
       <GoogleGeminiEffect
         pathLengths={[
           pathLengthFirst,
@@ -63,9 +68,9 @@ export default function Home() {
       
 
       </section>
-
+     
       <section className="mt-96">
-      <ClientTweetCard id="1812827725977334244" />;
+      <ClientTweetCard id="1822498928287207459" />;
 
       </section>
     </main>
